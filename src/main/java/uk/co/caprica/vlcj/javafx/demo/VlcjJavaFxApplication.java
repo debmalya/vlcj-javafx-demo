@@ -59,10 +59,6 @@ public class VlcjJavaFxApplication extends Application {
     @Override
     public final void start(Stage primaryStage) throws Exception {
         List<String> params = getParameters().getRaw();
-        if (params.size() != 1) {
-            System.out.println("Specify a single MRL");
-            System.exit(-1);
-        }
 
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: black;");
@@ -85,7 +81,7 @@ public class VlcjJavaFxApplication extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        embeddedMediaPlayer.media().play(params.get(0));
+        embeddedMediaPlayer.media().play("rtsp://live:cyc10P11v3@IP_ADDRESS:PORT/video.h264");
 
         embeddedMediaPlayer.controls().setPosition(0.4f);
     }
